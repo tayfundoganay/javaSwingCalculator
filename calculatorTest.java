@@ -33,13 +33,13 @@ public class calculatorTest extends JFrame implements ActionListener {
 
         textPanel.setLayout(new GridLayout(2, 1));
         textPanel.setBorder(new TitledBorder("textField"));
-        textPanel.setBackground(Color.PINK); //derste görmedik
+        textPanel.setBackground(Color.PINK); 
 
         labelTextField = new JLabel();
-        labelTextField.setPreferredSize(new Dimension(400, 50)); // derste görmedik
+        labelTextField.setPreferredSize(new Dimension(400, 50)); 
 
         textField = new JTextField();
-        textField.setPreferredSize(new Dimension(400, 70)); //derste görmedik
+        textField.setPreferredSize(new Dimension(400, 70));
 
 
         textPanel.add(labelTextField);
@@ -167,9 +167,8 @@ public class calculatorTest extends JFrame implements ActionListener {
 
         if (event.getSource() == clearButton) {
             textField.setText(" ");
-            labelTextField.setText("");}
-        
-        else if (event.getSource() == button0) {
+            labelTextField.setText("");
+        }else if (event.getSource() == button0) {
             textField.setText(textField.getText() + "0");
         } else if (event.getSource() == button1) {
             textField.setText(textField.getText() + "1");
@@ -227,11 +226,8 @@ public class calculatorTest extends JFrame implements ActionListener {
 
         else if (event.getSource() == delButton) {
             int textLength = textField.getText().length();
-            if (textLength > 0) {
-                textField.setText(textField.getText().substring(0, textLength - 1));
-            }
-        }
-        else if (event.getSource() == sinButton) {
+            if (textLength > 0) {textField.setText(textField.getText().substring(0, textLength - 1));}
+        }else if (event.getSource() == sinButton) {
             num1 = Float.valueOf(textField.getText());
             newValue = String.valueOf(Math.sin(num1));
             labelTextField.setText("sin" + textField.getText() + " = " + newValue);
@@ -266,10 +262,8 @@ public class calculatorTest extends JFrame implements ActionListener {
 
         else if (event.getSource() == calculateButton) {
             String operator = getOperator();
-
             num1 = Float.parseFloat(getIlksayi());
             num2 = Float.parseFloat(textField.getText());
-
 
             if (operator == "+") {
                 setSonuc(num1 + num2);
@@ -291,10 +285,7 @@ public class calculatorTest extends JFrame implements ActionListener {
                 setSonuc(num1 % num2);
                 newValue = String.valueOf((int) getSonuc()); // kalanımız ondalıklı olmasın diye
                 textField.setText(newValue);
-
-                labelTextField.setText(num1 + getOperator() + num2 + " = " + getSonuc());
-            }
-
+                labelTextField.setText(num1 + getOperator() + num2 + " = " + getSonuc());}
         }
     }
 }
