@@ -12,15 +12,15 @@ public class calculatorTest extends JFrame implements ActionListener {
     private JTextField textField;
     private JLabel labelTextField;
 
-    private String operator, ilksayi;
-    private float sonuc;
+    private String operator, firstNum;
+    private float result;
 
     public String getOperator() {return operator;}
     public void setOperator(String operator) {this.operator = operator;}
-    public String getIlksayi() {return ilksayi;}
-    public void setIlksayi(String ilksayi) {this.ilksayi = ilksayi;}
-    public float getSonuc() {return sonuc;}
-    public void setSonuc(float sonuc) {this.sonuc = sonuc;}
+    public String getFirstNum() {return firstNum;}
+    public void setFirstNum(String firstNum) {this.firstNum = firstNum;}
+    public float getResult() {return result;}
+    public void setResult(float result) {this.result = result;}
 
 
     public calculatorTest() {
@@ -189,34 +189,34 @@ public class calculatorTest extends JFrame implements ActionListener {
         } else if (event.getSource() == button9) {
             textField.setText(textField.getText() + "9");
         } else if (event.getSource() == addButton) {
-            setIlksayi(textField.getText());
+            setFirstNum(textField.getText());
             setOperator("+");
             textField.setText(textField.getText() + "+");
             labelTextField.setText(textField.getText() + getOperator());
             textField.setText("");
         } else if (event.getSource() == subtractButton) {
-            setIlksayi(textField.getText());
+            setFirstNum(textField.getText());
             setOperator("-");
             textField.setText(textField.getText() + "-");
             int text = Integer.parseInt(textField.getText());
             labelTextField.setText(text + getOperator());
             textField.setText("");
         } else if (event.getSource() == multiplyButton) {
-            setIlksayi(textField.getText());
+            setFirstNum(textField.getText());
             setOperator("*");
             int text = Integer.parseInt(textField.getText());
             labelTextField.setText(text + getOperator());
             textField.setText(textField.getText() + "*");
             textField.setText("");
         } else if (event.getSource() == divideButton) {
-            setIlksayi(textField.getText());
+            setFirstNum(textField.getText());
             setOperator("/");
             int text = Integer.parseInt(textField.getText());
             labelTextField.setText(text + getOperator());
             textField.setText(textField.getText() + "/");
             textField.setText("");
         } else if (event.getSource() == remainButton) {
-            setIlksayi(textField.getText());
+            setFirstNum(textField.getText());
             setOperator("%");
             labelTextField.setText(textField.getText() + getOperator());
             textField.setText(textField.getText() + "%");
@@ -262,30 +262,30 @@ public class calculatorTest extends JFrame implements ActionListener {
 
         else if (event.getSource() == calculateButton) {
             String operator = getOperator();
-            num1 = Float.parseFloat(getIlksayi());
+            num1 = Float.parseFloat(getFirstNum());
             num2 = Float.parseFloat(textField.getText());
 
             if (operator == "+") {
-                setSonuc(num1 + num2);
-                newValue = String.valueOf(getSonuc());
+                setResult(num1 + num2);
+                newValue = String.valueOf(getResult());
                 textField.setText(newValue);
             } else if (operator == "-") {
-                setSonuc(num1 - num2);
-                newValue = String.valueOf(getSonuc());
+                setResult(num1 - num2);
+                newValue = String.valueOf(getResult());
                 textField.setText(newValue);
             } else if (operator == "*") {
-                setSonuc(num1 * num2);
-                newValue = String.valueOf(getSonuc());
+                setResult(num1 * num2);
+                newValue = String.valueOf(getResult());
                 textField.setText(newValue);
             } else if (operator == "/") {
-                setSonuc(num1 / num2);
-                newValue = String.valueOf(getSonuc());
+                setResult(num1 / num2);
+                newValue = String.valueOf(getResult());
                 textField.setText(newValue);
             } else if (operator == "%") {
-                setSonuc(num1 % num2);
-                newValue = String.valueOf((int) getSonuc()); // kalanımız ondalıklı olmasın diye
+                setResult(num1 % num2);
+                newValue = String.valueOf((int) getResult()); // kalanımız ondalıklı olmasın diye
                 textField.setText(newValue);
-                labelTextField.setText(num1 + getOperator() + num2 + " = " + getSonuc());}
+                labelTextField.setText(num1 + getOperator() + num2 + " = " + getResult());}
         }
     }
 }
